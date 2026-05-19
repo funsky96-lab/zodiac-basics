@@ -398,13 +398,38 @@ h2 {
 }
 
 .analysis-panel {
+  position: relative;
+  overflow: hidden;
   display: grid;
   gap: 14px;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--paper);
+  background:
+    radial-gradient(circle at 86% 16%, rgba(191, 143, 47, 0.18), transparent 28%),
+    radial-gradient(circle at 12% 92%, rgba(15, 118, 110, 0.14), transparent 34%),
+    linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(244, 250, 248, 0.94));
   box-shadow: var(--shadow);
+}
+
+.analysis-panel::before {
+  position: absolute;
+  top: 50%;
+  right: clamp(14px, 6vw, 72px);
+  z-index: 0;
+  color: rgba(15, 118, 110, 0.08);
+  content: var(--sign-symbol, "♈");
+  font-family: Arial, "Noto Sans Symbols", sans-serif;
+  font-size: clamp(150px, 26vw, 320px);
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-8deg);
+}
+
+.analysis-panel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .date-range {
