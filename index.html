@@ -16,19 +16,45 @@
         <span class="brand-mark">✦</span>
         <span data-i18n="brand">星座基础分析</span>
       </a>
-      <div class="language-switch" aria-label="Language switch">
-        <button class="lang-button active" type="button" data-lang="zh">中文</button>
-        <button class="lang-button" type="button" data-lang="en">English</button>
+      <div class="header-actions">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#top" data-i18n="navHome">首页</a>
+          <a href="#zodiac" data-i18n="navZodiac">星座</a>
+        </nav>
+        <div class="language-switch" aria-label="Language switch">
+          <button class="lang-button active" type="button" data-lang="zh">中文</button>
+          <button class="lang-button" type="button" data-lang="en">English</button>
+        </div>
       </div>
     </header>
 
     <main id="top">
+      <section class="welcome">
+        <div class="welcome-copy">
+          <p class="eyebrow" data-i18n="welcomeEyebrow">欢迎来到星座空间</p>
+          <h1 data-i18n="welcomeTitle">认识宇宙，也认识自己</h1>
+          <p class="hero-text" data-i18n="welcomeText">
+            在这里轻松认识 12 星座，看看自己和身边的人有哪些有趣的性格线索。
+          </p>
+          <div class="welcome-actions">
+            <a class="primary-link" href="#zodiac" data-i18n="enterSite">进入星座分析</a>
+            <a class="secondary-link" href="https://www.tiktok.com/" target="_blank" rel="noopener" data-i18n="tiktokLink">我的 TikTok</a>
+            <a class="secondary-link" href="https://www.google.com/search?q=zodiac+signs" target="_blank" rel="noopener" data-i18n="googleLink">Google 搜索</a>
+          </div>
+        </div>
+        <aside class="time-panel" aria-live="polite">
+          <p class="eyebrow" data-i18n="today">今日时间</p>
+          <strong id="current-date">--</strong>
+          <span id="current-time">--:--:--</span>
+        </aside>
+      </section>
+
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="eyebrow">12 星座 · 基础性格 · 中英文</p>
           <h1 data-i18n="heroTitle">选择你的星座，查看基础分析</h1>
           <p class="hero-text" data-i18n="heroText">
-            先上线一个超简单版本，用来学习部署、观察用户点击完整分析的意愿。
+            认识宇宙，认识自己的星座，认识自己的周围的人。
           </p>
         </div>
         <div class="sky-visual" aria-hidden="true">
@@ -41,7 +67,7 @@
         </div>
       </section>
 
-      <section class="zodiac-section" aria-labelledby="zodiac-title">
+      <section class="zodiac-section" id="zodiac" aria-labelledby="zodiac-title">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="choose">选择星座</p>
           <h2 id="zodiac-title" data-i18n="zodiacTitle">12 星座</h2>
@@ -57,6 +83,10 @@
           </div>
           <p id="selected-date" class="date-range">3月21日 - 4月19日</p>
           <p id="selected-analysis" class="analysis-text"></p>
+          <div class="celebrity-row">
+            <span data-i18n="celebrities">同星座知名人物</span>
+            <strong id="selected-celebrities"></strong>
+          </div>
           <button class="unlock-button" type="button" id="unlock-button">
             <span data-i18n="comingSoon">完整分析即将开放</span>
           </button>
