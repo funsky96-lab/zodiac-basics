@@ -8,6 +8,14 @@
       name="description"
       content="选择你的星座，查看中英文基础星座分析。完整分析即将开放。"
     >
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8E2GJHRS3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-V8E2GJHRS3");
+    </script>
     <link rel="stylesheet" href="styles.css?v=20260519-2">
   </head>
   <body>
@@ -37,9 +45,9 @@
             在这里轻松认识 12 星座，看看自己和身边的人有哪些有趣的性格线索。
           </p>
           <div class="welcome-actions">
-            <a class="primary-link" href="#zodiac" data-i18n="enterSite">进入星座分析</a>
-            <a class="secondary-link" href="https://www.tiktok.com/@funsky9" target="_blank" rel="noopener" data-i18n="tiktokLink">TikTok 橱窗甄选</a>
-            <a class="secondary-link" href="https://www.google.com/search?q=zodiac+signs" target="_blank" rel="noopener" data-i18n="googleLink">Google 搜索</a>
+            <a class="primary-link" href="#zodiac" data-track="enter_zodiac_click" data-i18n="enterSite">进入星座分析</a>
+            <a class="secondary-link" href="https://www.tiktok.com/@funsky9" target="_blank" rel="noopener" data-track="tiktok_picks_click" data-i18n="tiktokLink">TikTok 橱窗甄选</a>
+            <a class="secondary-link" href="https://www.google.com/search?q=zodiac+signs" target="_blank" rel="noopener" data-track="google_search_click" data-i18n="googleLink">Google 搜索</a>
           </div>
         </div>
         <aside class="time-panel" aria-live="polite">
@@ -101,6 +109,6 @@
       <p data-i18n="footer">仅供娱乐和自我探索，不构成专业建议。</p>
     </footer>
 
-    <script src="script.js?v=20260519-2"></script>
+    <script src="script.js?v=20260519-3"></script>
   </body>
 </html>

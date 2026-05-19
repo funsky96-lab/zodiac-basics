@@ -254,6 +254,12 @@ const interestCount = document.querySelector("#interest-count");
 const currentDate = document.querySelector("#current-date");
 const currentTime = document.querySelector("#current-time");
 
+function trackEvent(eventName, params = {}) {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, params);
+  }
+}
+
 function renderTranslations() {
   document.documentElement.lang = currentLang === "zh" ? "zh-CN" : "en";
   document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -278,6 +284,11 @@ function renderGrid() {
     `;
     button.addEventListener("click", () => {
       selectedSign = sign;
+      trackEvent("zodiac_select", {
+        zodiac_id: sign.id,
+        zodiac_name: sign.en.name,
+        language: currentLang
+      });
       renderGrid();
       renderSelectedSign();
       document.querySelector(".analysis-section").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -330,7 +341,21 @@ document.querySelector("#unlock-button").addEventListener("click", () => {
   const key = `full-analysis-clicks-${selectedSign.id}`;
   const count = Number(localStorage.getItem(key) || "0") + 1;
   localStorage.setItem(key, String(count));
+  trackEvent("full_analysis_click", {
+    zodiac_id: selectedSign.id,
+    zodiac_name: selectedSign.en.name,
+    language: currentLang
+  });
   interestCount.textContent = `${translations[currentLang].interestClicked} (${count})`;
+});
+
+document.querySelectorAll("[data-track]").forEach((element) => {
+  element.addEventListener("click", () => {
+    trackEvent(element.dataset.track, {
+      link_text: element.textContent.trim(),
+      language: currentLang
+    });
+  });
 });
 
 renderTranslations();
