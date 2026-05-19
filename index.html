@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>星座基础分析 | Zodiac Basics</title>
+    <meta
+      name="description"
+      content="选择你的星座，查看中英文基础星座分析。完整分析即将开放。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Zodiac Basics home">
+        <span class="brand-mark">✦</span>
+        <span data-i18n="brand">星座基础分析</span>
+      </a>
+      <div class="language-switch" aria-label="Language switch">
+        <button class="lang-button active" type="button" data-lang="zh">中文</button>
+        <button class="lang-button" type="button" data-lang="en">English</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">12 星座 · 基础性格 · 中英文</p>
+          <h1 data-i18n="heroTitle">选择你的星座，查看基础分析</h1>
+          <p class="hero-text" data-i18n="heroText">
+            先上线一个超简单版本，用来学习部署、观察用户点击完整分析的意愿。
+          </p>
+        </div>
+        <div class="sky-visual" aria-hidden="true">
+          <span class="star s1"></span>
+          <span class="star s2"></span>
+          <span class="star s3"></span>
+          <span class="star s4"></span>
+          <span class="orbit"></span>
+          <span class="moon"></span>
+        </div>
+      </section>
+
+      <section class="zodiac-section" aria-labelledby="zodiac-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="choose">选择星座</p>
+          <h2 id="zodiac-title" data-i18n="zodiacTitle">12 星座</h2>
+        </div>
+        <div class="zodiac-grid" id="zodiac-grid"></div>
+      </section>
+
+      <section class="analysis-section" aria-live="polite">
+        <div class="analysis-panel">
+          <div>
+            <p class="eyebrow" data-i18n="basicAnalysis">基础分析</p>
+            <h2 id="selected-name">白羊座 Aries</h2>
+          </div>
+          <p id="selected-date" class="date-range">3月21日 - 4月19日</p>
+          <p id="selected-analysis" class="analysis-text"></p>
+          <button class="unlock-button" type="button" id="unlock-button">
+            <span data-i18n="comingSoon">完整分析即将开放</span>
+          </button>
+          <p class="microcopy" id="interest-count" data-i18n="interestHint">
+            点击按钮可以用来观察用户兴趣，当前版本不会收费。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer">仅供娱乐和自我探索，不构成专业建议。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

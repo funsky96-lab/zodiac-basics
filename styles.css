@@ -1,0 +1,353 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f5ef;
+  --ink: #202124;
+  --muted: #68615a;
+  --line: #ddd5c8;
+  --paper: #fffdf8;
+  --accent: #0f766e;
+  --accent-strong: #0b5f59;
+  --gold: #bf8f2f;
+  --rose: #b85d68;
+  --shadow: 0 18px 48px rgba(52, 45, 36, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(191, 143, 47, 0.14), transparent 32%),
+    linear-gradient(135deg, #f7f5ef 0%, #eef4f2 48%, #f8f0ee 100%);
+  color: var(--ink);
+  font-family: Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px clamp(18px, 4vw, 56px);
+  background: rgba(247, 245, 239, 0.86);
+  border-bottom: 1px solid rgba(221, 213, 200, 0.8);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fffdf8;
+}
+
+.language-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.8);
+}
+
+.lang-button,
+.unlock-button,
+.zodiac-card {
+  font: inherit;
+}
+
+.lang-button {
+  min-width: 78px;
+  min-height: 38px;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.lang-button.active {
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+main {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  min-height: 470px;
+  padding: clamp(42px, 7vw, 84px) 0 38px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.hero-text {
+  max-width: 630px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.sky-visual {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(32, 33, 36, 0.94), rgba(15, 72, 79, 0.9)),
+    #202124;
+  box-shadow: var(--shadow);
+}
+
+.moon {
+  position: absolute;
+  right: 20%;
+  top: 26%;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 36% 32%, #fff7d8 0 8%, transparent 9%),
+    radial-gradient(circle at 66% 60%, rgba(120, 108, 90, 0.3) 0 10%, transparent 11%),
+    #f7df9c;
+  box-shadow: 0 0 48px rgba(247, 223, 156, 0.38);
+}
+
+.orbit {
+  position: absolute;
+  left: 12%;
+  bottom: 14%;
+  width: 76%;
+  height: 46%;
+  border: 1px solid rgba(255, 253, 248, 0.24);
+  border-radius: 50%;
+  transform: rotate(-16deg);
+}
+
+.star {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fffdf8;
+  box-shadow: 0 0 18px rgba(255, 253, 248, 0.9);
+}
+
+.s1 { left: 18%; top: 24%; }
+.s2 { left: 32%; top: 58%; }
+.s3 { right: 22%; bottom: 22%; }
+.s4 { right: 38%; top: 16%; }
+
+.zodiac-section,
+.analysis-section {
+  padding: 34px 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.zodiac-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.zodiac-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  min-height: 96px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(52, 45, 36, 0.06);
+}
+
+.zodiac-card:hover,
+.zodiac-card.active {
+  border-color: rgba(15, 118, 110, 0.45);
+  box-shadow: 0 14px 34px rgba(15, 118, 110, 0.14);
+  transform: translateY(-1px);
+}
+
+.symbol {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: #202124;
+  color: #f7df9c;
+  font-size: 28px;
+}
+
+.card-name {
+  display: block;
+  font-weight: 800;
+}
+
+.card-date {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.analysis-panel {
+  display: grid;
+  gap: 14px;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.date-range {
+  margin: 0;
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.analysis-text {
+  max-width: 860px;
+  margin: 0;
+  color: #403b35;
+  font-size: 18px;
+}
+
+.unlock-button {
+  width: fit-content;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--rose);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.unlock-button:hover {
+  background: #9f4c57;
+}
+
+.microcopy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.site-footer {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 30px 0 44px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .sky-visual {
+    min-height: 260px;
+  }
+
+  .zodiac-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .language-switch,
+  .lang-button {
+    width: 100%;
+  }
+
+  .zodiac-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .unlock-button {
+    width: 100%;
+  }
+}
