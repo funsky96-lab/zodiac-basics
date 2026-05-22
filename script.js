@@ -20,6 +20,17 @@ const translations = {
     comingSoon: "完整分析即将开放",
     interestHint: "点击按钮可以用来观察用户兴趣，当前版本不会收费。",
     interestClicked: "已记录一次完整分析兴趣。当前版本不会收费。",
+    premiumEyebrow: "完整分析预告",
+    premiumTitle: "完整星座分析即将开放",
+    premiumPrice: "预计价格：$0.99",
+    premiumCopy: "完整报告将包含爱情、事业、财富、人际关系、年度趋势和星座匹配建议。",
+    premiumLove: "爱情与关系倾向",
+    premiumCareer: "事业与金钱方向",
+    premiumYear: "年度趋势提醒",
+    premiumMatch: "适合你的星座匹配",
+    premiumInterest: "我想第一时间体验",
+    premiumHint: "当前不会收费，点击只用于统计兴趣。",
+    premiumThanks: "已记录你的兴趣，感谢！当前不会收费。",
     footer: "© 2026 Zodiac Basics. All rights reserved. 本网站内容仅供娱乐和自我探索，不构成专业建议。"
   },
   en: {
@@ -43,6 +54,17 @@ const translations = {
     comingSoon: "Full Analysis Coming Soon",
     interestHint: "Use this button to observe interest. This version does not charge money.",
     interestClicked: "Interest recorded once. This version does not charge money.",
+    premiumEyebrow: "Full Analysis Preview",
+    premiumTitle: "Full zodiac analysis is coming soon",
+    premiumPrice: "Expected price: $0.99",
+    premiumCopy: "The full report will include love, career, money, relationships, yearly trends, and zodiac match suggestions.",
+    premiumLove: "Love and relationship patterns",
+    premiumCareer: "Career and money direction",
+    premiumYear: "Yearly trend notes",
+    premiumMatch: "Zodiac matches for you",
+    premiumInterest: "Notify me when it opens",
+    premiumHint: "No payment now. This click only measures interest.",
+    premiumThanks: "Interest recorded. Thank you! No payment was taken.",
     footer: "© 2026 Zodiac Basics. All rights reserved. Content is for entertainment and self-reflection only, not professional advice."
   }
 };
@@ -253,6 +275,10 @@ const selectedCelebrities = document.querySelector("#selected-celebrities");
 const interestCount = document.querySelector("#interest-count");
 const currentDate = document.querySelector("#current-date");
 const currentTime = document.querySelector("#current-time");
+const premiumModal = document.querySelector("#premium-modal");
+const modalClose = document.querySelector("#modal-close");
+const premiumInterestButton = document.querySelector("#premium-interest-button");
+const premiumThanks = document.querySelector("#premium-thanks");
 
 function trackEvent(eventName, params = {}) {
   if (typeof window.gtag === "function") {
@@ -350,6 +376,55 @@ document.querySelector("#unlock-button").addEventListener("click", () => {
     language: currentLang
   });
   interestCount.textContent = `${translations[currentLang].interestClicked} (${count})`;
+  premiumThanks.textContent = translations[currentLang].premiumHint;
+  premiumModal.hidden = false;
+  document.body.classList.add("modal-open");
+  premiumInterestButton.focus();
+  trackEvent("premium_preview_open", {
+    zodiac_id: selectedSign.id,
+    zodiac_name: selectedSign.en.name,
+    language: currentLang
+  });
+});
+
+function closePremiumModal() {
+  premiumModal.hidden = true;
+  document.body.classList.remove("modal-open");
+  document.querySelector("#unlock-button").focus();
+}
+
+modalClose.addEventListener("click", () => {
+  closePremiumModal();
+  trackEvent("premium_preview_close", {
+    zodiac_id: selectedSign.id,
+    zodiac_name: selectedSign.en.name,
+    language: currentLang
+  });
+});
+
+premiumModal.addEventListener("click", (event) => {
+  if (event.target === premiumModal) {
+    closePremiumModal();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !premiumModal.hidden) {
+    closePremiumModal();
+  }
+});
+
+premiumInterestButton.addEventListener("click", () => {
+  const key = `premium-interest-${selectedSign.id}`;
+  const count = Number(localStorage.getItem(key) || "0") + 1;
+  localStorage.setItem(key, String(count));
+  premiumThanks.textContent = `${translations[currentLang].premiumThanks} (${count})`;
+  trackEvent("premium_interest_click", {
+    zodiac_id: selectedSign.id,
+    zodiac_name: selectedSign.en.name,
+    language: currentLang,
+    expected_price: "0.99"
+  });
 });
 
 document.querySelectorAll("[data-track]").forEach((element) => {
