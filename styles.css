@@ -678,10 +678,11 @@ h2 {
 .article-card {
   position: relative;
   display: grid;
-  gap: 10px;
-  min-height: 280px;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px;
+  min-height: 300px;
   overflow: hidden;
-  padding: 22px;
+  padding: 22px 22px 20px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
@@ -692,13 +693,18 @@ h2 {
 
 .article-symbol {
   position: absolute;
-  right: 16px;
-  bottom: -28px;
+  right: 18px;
+  bottom: 16px;
+  display: grid;
+  width: 126px;
+  height: 126px;
+  place-items: center;
   color: rgba(15, 118, 110, 0.08);
-  font-size: 140px;
+  font-size: 118px;
   font-weight: 900;
   line-height: 1;
   pointer-events: none;
+  transform: none;
 }
 
 .article-tag {
@@ -719,6 +725,8 @@ h2 {
 }
 
 .read-button {
+  position: relative;
+  z-index: 1;
   width: fit-content;
   min-height: 42px;
   align-self: end;
@@ -830,7 +838,7 @@ h2 {
   }
 
   .article-card {
-    min-height: auto;
+    min-height: 260px;
   }
 
   .content-band .primary-link {
