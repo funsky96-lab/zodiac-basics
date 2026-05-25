@@ -8,9 +8,14 @@ const translations = {
     welcomeTitle: "认识宇宙，也认识自己",
     welcomeText: "在这里轻松认识 12 星座，看看自己和身边的人有哪些有趣的性格线索。",
     enterSite: "进入星座分析",
+    articlesLink: "阅读星座故事",
     tiktokLink: "TikTok 橱窗甄选",
     googleLink: "Google 搜索",
     today: "今日时间",
+    storiesEyebrow: "新内容",
+    storiesTitle: "不只看分析，也读懂星座故事",
+    storiesText: "每个星座都有一篇更有情绪和生活感的短文，适合分享给朋友，也适合看见自己。",
+    storiesButton: "去看 12 星座文章",
     eyebrow: "12 星座 · 基础性格 · 中英文",
     heroTitle: "选择你的星座，查看基础分析",
     heroText: "认识宇宙，认识自己的星座，认识自己的周围的人。",
@@ -43,9 +48,14 @@ const translations = {
     welcomeTitle: "Know the universe, and know yourself",
     welcomeText: "Explore the 12 zodiac signs and discover simple clues about yourself and the people around you.",
     enterSite: "Enter Zodiac Analysis",
+    articlesLink: "Read Zodiac Stories",
     tiktokLink: "TikTok Picks",
     googleLink: "Google Search",
     today: "Current Time",
+    storiesEyebrow: "New Content",
+    storiesTitle: "Read the stories behind the signs",
+    storiesText: "Each sign now has a short essay with more emotion and everyday reflection, made for sharing and self-recognition.",
+    storiesButton: "Read 12 Zodiac Articles",
     eyebrow: "12 Signs · Basic Traits · Chinese / English",
     heroTitle: "Choose your zodiac sign and read a simple analysis",
     heroText: "Understand the universe, your zodiac sign, and the people around you.",
@@ -277,6 +287,7 @@ const selectedCelebrities = document.querySelector("#selected-celebrities");
 const interestCount = document.querySelector("#interest-count");
 const currentDate = document.querySelector("#current-date");
 const currentTime = document.querySelector("#current-time");
+const currentLunar = document.querySelector("#current-lunar");
 const premiumModal = document.querySelector("#premium-modal");
 const modalClose = document.querySelector("#modal-close");
 const premiumInterestButton = document.querySelector("#premium-interest-button");
@@ -351,6 +362,15 @@ function renderClock() {
     minute: "2-digit",
     second: "2-digit"
   }).format(now);
+  try {
+    currentLunar.textContent = new Intl.DateTimeFormat("zh-CN-u-ca-chinese", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }).format(now);
+  } catch (error) {
+    currentLunar.textContent = currentLang === "zh" ? "农历日期暂不可用" : "Lunar date unavailable";
+  }
 }
 
 function setLanguage(lang) {

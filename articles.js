@@ -304,6 +304,62 @@ const articleData = [
   }
 ];
 
+const articleReflections = {
+  aries: {
+    zh: "白羊真正要学习的，不是把火熄灭，而是让火有方向。你不需要为自己的热烈道歉，只需要学会在重要的人和重要的事面前，多给自己三秒钟。",
+    en: "What Aries truly learns is not to put out the fire, but to give it direction. You do not need to apologize for your intensity; you only need to give yourself three more seconds with the people and choices that matter."
+  },
+  taurus: {
+    zh: "金牛的课题，是在安全感和改变之间找到平衡。不是所有变化都会夺走你的稳定，有些变化会帮你找到更适合自己的生活。",
+    en: "Taurus learns to balance security with change. Not every change takes stability away; some changes lead you toward a life that fits you better."
+  },
+  gemini: {
+    zh: "双子的深度，常常藏在轻松的外表下面。你可以喜欢很多东西，也可以认真选择一个方向；这两件事并不矛盾。",
+    en: "Gemini depth often hides beneath a light surface. You can love many things and still choose one direction seriously; these two truths can live together."
+  },
+  cancer: {
+    zh: "巨蟹最需要相信的是：被爱不应该只靠懂事换来。你可以敏感，也可以有边界；你可以照顾别人，也可以被别人照顾。",
+    en: "Cancer most needs to believe that love should not be earned only by being understanding. You can be sensitive and still have boundaries; you can care for others and be cared for too."
+  },
+  leo: {
+    zh: "狮子的深层愿望，是被真诚地看见，而不是只被夸奖。真正的光芒，不怕承认自己也有需要被抱住的时候。",
+    en: "Leo's deeper wish is to be truly seen, not only praised. Real light is not afraid to admit that it also needs to be held sometimes."
+  },
+  virgo: {
+    zh: "处女座的温柔，是想把事情变好。只是别忘了，人不是项目，爱也不是一张永远需要修正的清单。",
+    en: "Virgo tenderness is the wish to make things better. Just remember that people are not projects, and love is not a list that always needs correction."
+  },
+  libra: {
+    zh: "天秤的成长，是从维持关系的好看，走向关系里的真实。你不用总做最会体谅的人，你也可以被认真体谅。",
+    en: "Libra grows from making relationships look peaceful toward making them honest. You do not always have to be the understanding one; you deserve to be understood too."
+  },
+  scorpio: {
+    zh: "天蝎的力量，不只是看穿别人，也包括愿意被值得的人看见。深情不一定要藏得很深，信任也可以一点点练习。",
+    en: "Scorpio strength is not only seeing through others; it is also allowing worthy people to see you. Deep feeling does not always have to stay hidden, and trust can be practiced slowly."
+  },
+  sagittarius: {
+    zh: "射手的远方，不应该只是逃离当下，也可以是带着经验回来的路。真正的自由，会让你更像自己，而不是更害怕靠近。",
+    en: "Sagittarius distance should not only be escape; it can also be a road that brings experience back. Real freedom makes you more yourself, not more afraid of closeness."
+  },
+  capricorn: {
+    zh: "摩羯的成熟，不是永远扛住一切，而是知道什么时候该把重担放下来。你已经很努力了，休息不是退步。",
+    en: "Capricorn maturity is not carrying everything forever; it is knowing when to set the weight down. You have worked hard. Rest is not failure."
+  },
+  aquarius: {
+    zh: "水瓶的孤独，有时来自太早看见别人还没看见的东西。请相信，不被所有人理解，不代表你的想法没有价值。",
+    en: "Aquarius loneliness sometimes comes from seeing things before others do. Not being understood by everyone does not mean your ideas have no value."
+  },
+  pisces: {
+    zh: "双鱼的共情很珍贵，但你不是所有情绪的收容所。真正的温柔，也包括温柔地保护自己。",
+    en: "Pisces empathy is precious, but you are not a shelter for every emotion. True kindness also includes protecting yourself gently."
+  }
+};
+
+articleData.forEach((article) => {
+  article.zh.paragraphs.push(articleReflections[article.id].zh);
+  article.en.paragraphs.push(articleReflections[article.id].en);
+});
+
 let articleLang = "zh";
 
 function trackArticleEvent(eventName, params = {}) {
