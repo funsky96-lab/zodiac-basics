@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>星座文章与故事 | Zodiac Articles</title>
+    <meta
+      name="description"
+      content="阅读关于 12 星座的短文、故事和性格观察，轻松认识自己和身边的人。"
+    >
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8E2GJHRS3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){window.dataLayer.push(arguments);};
+      gtag("js", new Date());
+      gtag("config", "G-V8E2GJHRS3");
+    </script>
+    <link rel="stylesheet" href="styles.css?v=20260525-1">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Zodiac Basics home">
+        <span class="brand-mark">✦</span>
+        <span>星座基础分析</span>
+      </a>
+      <div class="header-actions">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">首页</a>
+          <a href="index.html#zodiac">星座</a>
+          <a href="articles.html" aria-current="page">文章</a>
+        </nav>
+        <div class="language-switch" aria-label="Language switch">
+          <button class="lang-button active" type="button" data-article-lang="zh">中文</button>
+          <button class="lang-button" type="button" data-article-lang="en">English</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="articles-page">
+      <section class="articles-hero">
+        <p class="eyebrow" data-article-i18n="eyebrow">星座文章与故事</p>
+        <h1 data-article-i18n="title">从故事里认识 12 星座</h1>
+        <p data-article-i18n="intro">
+          这里会慢慢收集星座短文、关系观察和生活故事。先从几篇轻量内容开始，让网站更有阅读价值。
+        </p>
+      </section>
+
+      <section class="article-grid" id="article-grid" aria-label="Zodiac articles"></section>
+
+      <section class="article-reader" id="article-reader" hidden>
+        <button type="button" class="modal-close article-close" id="article-close" aria-label="Close article">×</button>
+        <p class="eyebrow" id="reader-tag">Zodiac Story</p>
+        <h2 id="reader-title"></h2>
+        <div id="reader-body"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Zodiac Basics. All rights reserved. 本网站内容仅供娱乐和自我探索，不构成专业建议。</p>
+    </footer>
+
+    <script src="articles.js?v=20260525-1"></script>
+  </body>
+</html>
